@@ -19,7 +19,12 @@ class IndexController extends \Zend\Mvc\Controller\AbstractActionController
         if($this->flashMessenger()->hasMessages()){
             $messages = $this->flashMessenger()->getMessages();
         }
-        return new ViewModel(array('messages' => $messages));
+        // Aqui será instanciado a ViewModel automaticamente para
+        // inserir o conteudo do array
+        return array('messages' => $messages);
+
+
+        //return new ViewModel(array('messages' => $messages));
     }
 
     public function fooAction()
